@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VulnerabilityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['namespace' => 'App\Http\Controllers'], function(){
+    Route::get('/file', function(){
+        return view('parsing.index');
+    });
+    Route::post('/file', [VulnerabilityController::class, 'store'])
+        ->name('file.parser.store');
+});
+
