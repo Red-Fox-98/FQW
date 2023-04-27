@@ -14,10 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('vulnerabilities', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->string('BDU');
-            $table->string('CWE')->nullable();
-            $table->string('CAPEC')->nullable();
+            $table->string('CWE');
+            $table->string('CAPEC');
         });
     }
 
