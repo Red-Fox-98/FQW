@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center gy-1">
             <div class="col-md-9">
                 <form method="post" action="{{route('file.parser.processing')}}" enctype="multipart/form-data">
                     @csrf
@@ -18,13 +18,18 @@
                         <label for="file">Загрузить файл</label>
                         <input type="file" name="file" id="file" class="form-control">
                     </div>
-                    <br><button class="btn btn-success">Обработка</button>
+                    <br>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success">Обработка</button>
+                    </div>
                 </form>
             </div>
             <div class="col-md-9">
                 <form method="post" action="{{route('file.parser.download')}}" enctype="multipart/form-data">
                     @csrf
-                    <br><button class="btn btn-success">Скачать</button>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success">Скачать</button>
+                    </div>
                 </form>
             </div>
         </div>
