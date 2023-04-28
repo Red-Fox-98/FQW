@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <form method="post" action="{{route('file.parser.store')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('file.parser.processing')}}" enctype="multipart/form-data">
                     @csrf
                     @php /** @var \Illuminate\Support\ViewErrorBag $errors */ @endphp
                     @if($errors->any())
@@ -14,18 +14,17 @@
                             {{ $errors->first() }}
                         </div>
                     @endif
-                    @if(session('success'))
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            {{ session()->get('success') }}
-                        </div>
-                    @endif
                     <div class="form-group">
                         <label for="file">Загрузить файл</label>
                         <input type="file" name="file" id="file" class="form-control">
                     </div>
                     <br><button class="btn btn-success">Обработка</button>
+                </form>
+            </div>
+            <div class="col-md-9">
+                <form method="post" action="{{route('file.parser.download')}}" enctype="multipart/form-data">
+                    @csrf
+                    <br><button class="btn btn-success">Скачать</button>
                 </form>
             </div>
         </div>

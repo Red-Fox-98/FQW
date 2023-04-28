@@ -26,7 +26,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function(){
     Route::get('/file', function(){
         return view('parsing.index');
     });
-    Route::post('/file', [VulnerabilityController::class, 'store'])
-        ->name('file.parser.store');
+    Route::post('/file', [VulnerabilityController::class, 'processing'])
+        ->name('file.parser.processing');
+    Route::post('/file/download', [VulnerabilityController::class, 'download'])
+        ->name('file.parser.download');
 });
 
